@@ -1,8 +1,8 @@
-import cn from "classnames";
-import s from "./image-form.module.scss";
-import { Input } from "../../../../shared/ui/input";
-import searchIcon from "../../../../shared/assets/icons/search-icon.svg";
-import { Button } from "../../../../shared/ui/button/button.tsx";
+import cn from 'classnames';
+import searchIcon from '../../../../shared/assets/icons/search-icon.svg';
+import { Button } from '../../../../shared/ui/button/button.tsx';
+import { Input } from '../../../../shared/ui/input';
+import s from './image-form.module.scss';
 
 type ImageFormProps = {
   query: string;
@@ -10,7 +10,8 @@ type ImageFormProps = {
   error: string;
   loading: boolean;
   count: number;
-  handleSearch: () => void;
+  handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
+  onClear?: () => void;
 };
 
 export const ImageForm = ({
@@ -20,28 +21,29 @@ export const ImageForm = ({
   count,
   error,
   loading,
+  onClear
 }: ImageFormProps) => {
   return (
     <form
       onSubmit={handleSearch}
       className={cn(s.form, {
-        [s.active]: count === 0 && !error && !loading,
+        [s.active]: count === 0 && !error && !loading
       })}
     >
       <Input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Телефоны, яблоки, груши..."
+        placeholder='Телефоны, яблоки, груши...'
         rightSection={
           <span className={s.icon}>
-            <img src={searchIcon} alt="serach icon" />
+            <img src={searchIcon} alt='serach icon' />
           </span>
         }
-        type="search"
+        type='search'
         allowClear
-        onClear={() => setQuery("")}
+        onClear={onClear || (() => setQuery(''))}
       />
-      <Button type="submit">Искать</Button>
+      <Button type='submit'>Искать</Button>
     </form>
   );
 };

@@ -7,7 +7,7 @@
 
   @media only screen and (max-width: 768px) {
     padding-top: 16px;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
   }
 }
 
@@ -25,12 +25,12 @@
   }
 
   @media only screen and (max-width: 768px) {
-    width: 114px;
-    height: 114px;
+    width: 121px;
+    height: 121px;
   }
 
   @media only screen and (max-width: 400px) {
-    width: 90px;
-    height: 90px;
+    width: 104px;
+    height: 104px;
   }
 }

@@ -1,5 +1,6 @@
-import s from "./image-list.module.scss";
-import type { UnsplashImage } from "../../model/types/types.ts";
+import type { UnsplashImage } from '../../model/types/types.ts';
+import { getImageAltText, getImageUrl } from '../../model/utils/imageUtils';
+import s from './image-list.module.scss';
 
 type ImageListProps = {
   images: UnsplashImage[];
@@ -13,12 +14,12 @@ export const ImageList = ({ images, handleOpenModal }: ImageListProps) => {
         <div
           key={image.id}
           className={s.image}
-          onClick={() => handleOpenModal(image.urls.small)}
+          onClick={() => handleOpenModal(getImageUrl(image))}
         >
           <img
-            src={image.urls.small}
-            alt={image.alt_description || "Unsplash image"}
-            loading="lazy"
+            src={getImageUrl(image)}
+            alt={getImageAltText(image)}
+            loading='lazy'
           />
         </div>
       ))}
