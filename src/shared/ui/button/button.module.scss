@@ -1,0 +1,24 @@
+.button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  height: 48px;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #eb0c0c;
+  padding: 0 16.5px;
+  gap: 10px;
+  transition: all 250ms ease;
+  color: #ffffff;
+
+  &:hover {
+    background: #c30000;
+  }
+}
