@@ -20,5 +20,9 @@
 
   &:hover {
     background: #c30000;
+
+    @media only screen and (max-width: 768px) {
+      background: #eb0c0c;
+    }
   }
 }

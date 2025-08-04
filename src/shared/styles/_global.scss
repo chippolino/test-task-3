@@ -11,6 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+  height: 100dvh;
+}
+
 body {
   margin: 0;
   min-width: 320px;

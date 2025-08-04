@@ -4,6 +4,7 @@ export interface UnsplashImage {
     small: string;
     regular: string;
     thumb: string;
+    full: string;
   };
   alt_description: string;
 }

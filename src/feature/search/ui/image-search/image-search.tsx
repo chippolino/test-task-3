@@ -1,14 +1,14 @@
-import cn from 'classnames';
-import { useState } from 'react';
-import { useImageModal, useImageSearch } from '../../model/hooks';
-import { isValidQuery } from '../../model/utils/validation';
-import { ImageForm } from '../image-form/image-form.tsx';
-import { ImageList } from '../image-list/image-list.tsx';
-import { SearchImageModal } from '../image-modal/image-modal.tsx';
-import s from './image-search.module.scss';
+import cn from "classnames";
+import { useState } from "react";
+import { useImageModal, useImageSearch } from "../../model/hooks";
+import { isValidQuery } from "../../model/utils/validation";
+import { ImageForm } from "../image-form/image-form.tsx";
+import { ImageList } from "../image-list/image-list.tsx";
+import { SearchImageModal } from "../image-modal/image-modal.tsx";
+import s from "./image-search.module.scss";
 
 export const ImageSearch = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const {
     images,
     loading,
@@ -16,7 +16,7 @@ export const ImageSearch = () => {
     totalResults,
     hasSearched,
     searchImages,
-    clearError
+    clearError,
   } = useImageSearch();
   const { isModalOpen, modalImage, openModal, closeModal } = useImageModal();
 
@@ -27,27 +27,26 @@ export const ImageSearch = () => {
   };
 
   const handleClearQuery = () => {
-    setQuery('');
+    setQuery("");
     clearError();
   };
 
   return (
     <div
       className={cn(s.root, {
-        [s.rootScroll]: totalResults > 30
+        [s.rootScroll]: totalResults > 30,
       })}
     >
-      <div className={cn('container', s.wrap)}>
-        <ImageForm
-          query={query}
-          setQuery={setQuery}
-          error={error}
-          loading={loading}
-          count={images.length}
-          handleSearch={handleSearch}
-          onClear={handleClearQuery}
-        />
-
+      <ImageForm
+        query={query}
+        setQuery={setQuery}
+        error={error}
+        loading={loading}
+        count={images.length}
+        handleSearch={handleSearch}
+        onClear={handleClearQuery}
+      />
+      <div className={cn("container", s.wrap)}>
         {error && (
           <div className={s.empty}>
             <p className={s.text}>{error}</p>
